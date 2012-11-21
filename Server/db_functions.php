@@ -23,9 +23,9 @@ class DB_Functions
         include_once ("jdf.php");
         $time_now = jdate('Y/n/j');
 
-        mysql_real_escape_string($user_email);
-        mysql_real_escape_string($user_password);
-        mysql_real_escape_string($user_name);
+        $user_email = mysql_real_escape_string($user_email);
+        $user_password = mysql_real_escape_string($user_password);
+        $user_name = mysql_real_escape_string($user_name);
 
         $user_password = md5($user_password);
 
@@ -46,8 +46,8 @@ class DB_Functions
 
     public function login($user_email, $user_password)
     {
-        mysql_real_escape_string($user_email);
-        mysql_real_escape_string($user_password);
+        $user_email = mysql_real_escape_string($user_email);
+        $user_password = mysql_real_escape_string($user_password);
 
         $user_password = md5($user_password);
 
@@ -63,7 +63,7 @@ class DB_Functions
 
     public function isUserExisted($user_email)
     {
-        mysql_real_escape_string($user_email);
+        $user_email = mysql_real_escape_string($user_email);
 
         $result = mysql_query("SELECT `id` FROM `tbl_users` WHERE `user_email` = '$user_email'") or
             die(mysql_error());
@@ -86,10 +86,10 @@ class DB_Functions
         include_once ("jdf.php");
         $date_now = jdate('Y/n/j');
 
-        mysql_real_escape_string($note_content);
-        mysql_real_escape_string($note_subject);
+        $note_content = $note_content = mysql_real_escape_string($note_content);
 
         $note_subject = $this->createSubject($note_content, 0, 15);
+        $note_subject = mysql_real_escape_string($note_subject);
 
         $result = mysql_query("INSERT INTO `tbl_notes`(`user_id`, `note_subject`, `note_date`,`note_content`) VALUES ('$user_id', '$note_subject', '$date_now','$note_content')") or
             die(mysql_error());
@@ -105,10 +105,10 @@ class DB_Functions
         include_once ("jdf.php");
         $note_date = jdate('Y/n/j');
 
-        mysql_real_escape_string($note_content);
-        mysql_real_escape_string($note_subject);
+        $note_content = mysql_real_escape_string($note_content);
 
         $note_subject = $this->createSubject($note_content, 0, 15);
+        $note_subject = mysql_real_escape_string($note_subject);
 
         $result = mysql_query("UPDATE `tbl_notes` SET `note_subject`='$note_subject', `note_date`='$note_date', `note_content`='$note_content' WHERE `id` = '$note_id'") or
             die(mysql_error());
@@ -124,8 +124,7 @@ class DB_Functions
         $result = mysql_query("UPDATE `tbl_notes` SET `note_deleted`=1 WHERE `id` = '$note_id' ") or
             die(mysql_error());
 
-        error_log("deleteNotes >> result : " . $result . "\r\n",
-            3, "Log.log");
+        error_log("deleteNotes >> result : " . $result . "\r\n", 3, "Log.log");
 
         return ($result);
     }
