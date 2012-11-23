@@ -3,6 +3,7 @@ package ir.mohammadi.android.nightly;
 import ir.mohammadi.android.nightly.sqlite.UserInfo;
 import ir.mohammadi.android.nightly.sqlite.UserInfoDataSource;
 import ir.mohammadi.android.nightly.tools.CustomToast;
+import ir.mohammadi.android.nightly.tools.ProjectConst;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -233,7 +234,7 @@ toast.show();
 							EXECUTE_RESULT, R.color.toast_error);
 					toast.show();
 
-					Log.i("Login Error >> ", EXECUTE_RESULT);
+					Log.i(ProjectConst.debugTag ,  "Login Error >> " +  EXECUTE_RESULT);
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();

@@ -1,5 +1,6 @@
 package ir.mohammadi.android.nightly.sqlite;
 
+import ir.mohammadi.android.nightly.tools.ProjectConst;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -21,7 +22,7 @@ public class UserInfoDataSource {
 
 	public void open() throws SQLException {
 
-		Log.i("UserInfoDataSource >> open >>", "...");
+		Log.i(ProjectConst.debugTag , "UserInfoDataSource >> open >> ..." );
 		database = dbHelper.getWritableDatabase();
 	}
 
@@ -46,7 +47,7 @@ public class UserInfoDataSource {
 		UserInfo newUserInfo = cursorToUserInfo(cursor);
 		cursor.close();
 
-		Log.i("UserInfoDataSource >> createUserInfo >>", newUserInfo.toString());
+		Log.i(ProjectConst.debugTag ,"UserInfoDataSource >> createUserInfo >> " +  newUserInfo.toString());
 
 		return newUserInfo;
 	}
@@ -61,7 +62,7 @@ public class UserInfoDataSource {
 		Cursor cursor = database.query(SQLiteHelper.TABLE_USER_INFO,
 				allColumns, null, null, null, null, null);
 		if (cursor.moveToFirst()) {
-			Log.i("UserInfoDataSource >> cursor >>", cursor.toString());
+			Log.i(ProjectConst.debugTag , "UserInfoDataSource >> cursor >> " +  cursor.toString());
 			userInfo = cursorToUserInfo(cursor);
 			cursor.close();
 		}
@@ -71,7 +72,7 @@ public class UserInfoDataSource {
 
 	private UserInfo cursorToUserInfo(Cursor cursor) {
 
-		Log.i("UserInfoDataSource >> cursorToUserInfo >>", cursor.toString());
+		Log.i(ProjectConst.debugTag , "UserInfoDataSource >> cursorToUserInfo >> " + cursor.toString());
 
 		UserInfo userInfo = new UserInfo();
 

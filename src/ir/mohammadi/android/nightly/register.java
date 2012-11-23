@@ -2,6 +2,7 @@ package ir.mohammadi.android.nightly;
 
 import ir.mohammadi.android.nightly.sqlite.UserInfoDataSource;
 import ir.mohammadi.android.nightly.tools.CustomToast;
+import ir.mohammadi.android.nightly.tools.ProjectConst;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -191,7 +192,7 @@ public class register extends Activity {
 							EXECUTE_RESULT, R.color.toast_error);
 					toast.show();
 
-					Log.i("Register Error >> ", EXECUTE_RESULT);
+					Log.i(ProjectConst.debugTag ,  "Register Error >> " +  EXECUTE_RESULT);
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();

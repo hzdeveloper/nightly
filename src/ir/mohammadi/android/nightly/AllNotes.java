@@ -1,6 +1,7 @@
 package ir.mohammadi.android.nightly;
 
 import ir.mohammadi.android.nightly.tools.CustomToast;
+import ir.mohammadi.android.nightly.tools.ProjectConst;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -176,7 +177,7 @@ public class AllNotes extends ListActivity {
 
 			jSon = userFunctions.getAllNotes(userId);
 
-			Log.i("AllNotes >> jSon >>", jSon.toString());
+			Log.i(ProjectConst.debugTag , "AllNotes >> jSon >> " + jSon.toString());
 
 			return null;
 		}
@@ -194,7 +195,7 @@ public class AllNotes extends ListActivity {
 							JSONObject c = notes.getJSONObject(Integer
 									.toString(i));
 
-							Log.i("JSONObject c >>", c.toString());
+							Log.i(ProjectConst.debugTag ,  "JSONObject c >> " + c.toString());
 
 							String id = c.getString(KEY_NOTE_ID);
 							String subject = c.getString(KEY_NOTE_SUBJECT);

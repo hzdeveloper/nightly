@@ -1,5 +1,7 @@
 package ir.mohammadi.android.nightly;
 
+import ir.mohammadi.android.nightly.tools.ProjectConst;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,7 +43,7 @@ public class JSONParser {
 			HttpEntity httpEntity = httpResponse.getEntity();
 			is = httpEntity.getContent();
 
-			Log.i("Input stream >> ", is.toString());
+			Log.i(ProjectConst.debugTag ,  "Input stream >> " +  is.toString());
 
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -63,15 +65,15 @@ public class JSONParser {
 			is.close();
 			json = sb.toString();
 
-			Log.i("JSON string builder >> ", json.toString());
+			Log.i(ProjectConst.debugTag , "JSON string builder >> " + json.toString());
 		} catch (Exception e) {
-			Log.e("Buffer Error", "Error converting result " + e.toString());
+			Log.e(ProjectConst.debugTag , "Buffer Error " + "Error converting result " + e.toString());
 		}
 
 		try {
 			jObj = new JSONObject(json.substring(1, json.length()));
 		} catch (JSONException e) {
-			Log.e("JSON Parser", "Error parsing data " + e.toString());
+			Log.e(ProjectConst.debugTag , "JSON Parser " +  "Error parsing data " + e.toString());
 		}
 		return jObj;
 	}

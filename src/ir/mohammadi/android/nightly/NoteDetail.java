@@ -1,6 +1,7 @@
 package ir.mohammadi.android.nightly;
 
 import ir.mohammadi.android.nightly.tools.CustomToast;
+import ir.mohammadi.android.nightly.tools.ProjectConst;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,7 +60,7 @@ public class NoteDetail extends Activity {
 		Intent i = getIntent();
 		userId = i.getStringExtra("user_id");
 		noteId = i.getStringExtra(Key_NOTE_ID);
-		Log.i("Note Id is >>", noteId.toString());
+		Log.i(ProjectConst.debugTag ,  "Note Id is >> " +  noteId.toString());
 
 		i.removeExtra(Key_NOTE_ID);
 

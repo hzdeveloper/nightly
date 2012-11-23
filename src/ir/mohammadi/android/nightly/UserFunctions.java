@@ -1,5 +1,7 @@
 package ir.mohammadi.android.nightly;
 
+import ir.mohammadi.android.nightly.tools.ProjectConst;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,12 +36,11 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("user_password", password));
 		params.add(new BasicNameValuePair("user_name", name));
 
-		Log.i("Register params before getting from net >>", params.toString());
+		Log.i(ProjectConst.debugTag ,  "Register params before getting from net >> " + params.toString());
 
 		JSONObject jsonObject = jsonParser.getJSONFromUrl(apisURL, params);
 
-		Log.i("Register params after getting from net >>",
-				jsonObject.toString());
+		Log.i(ProjectConst.debugTag ,  "Register params after getting from net >> " + jsonObject.toString());
 
 		return jsonObject;
 	}
@@ -50,11 +51,11 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("user_email", email));
 		params.add(new BasicNameValuePair("user_password", password));
 
-		Log.i("Login params before getting from net >>", params.toString());
+		Log.i(ProjectConst.debugTag , "Login params before getting from net >> " +  params.toString());
 
 		JSONObject jsonObject = jsonParser.getJSONFromUrl(apisURL, params);
 
-		Log.i("Login params after getting from net >>", jsonObject.toString());
+		Log.i(ProjectConst.debugTag ,  "Login params after getting from net >> " +  jsonObject.toString());
 
 		return jsonObject;
 	}
@@ -65,13 +66,11 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("tag", getAllNotes_tag));
 		params.add(new BasicNameValuePair("user_id", id));
 
-		Log.i("getAllNotes params before getting from net >>",
-				params.toString());
+		Log.i(ProjectConst.debugTag ,  "getAllNotes params before getting from net >> " + params.toString());
 
 		JSONObject jsonObject = jsonParser.getJSONFromUrl(apisURL, params);
 
-		Log.i("getAllNotes params after getting from net >>",
-				jsonObject.toString());
+		Log.i(ProjectConst.debugTag ,  "getAllNotes params after getting from net >> " + jsonObject.toString());
 
 		return jsonObject;
 	}
@@ -83,12 +82,11 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("user_id", user_id));
 		params.add(new BasicNameValuePair("note_content", note_content));
 
-		Log.i("saveNote params before getting from net >>", params.toString());
+		Log.i(ProjectConst.debugTag , "saveNote params before getting from net >> " + params.toString());
 
 		JSONObject jsonObject = jsonParser.getJSONFromUrl(apisURL, params);
 
-		Log.i("saveNote params after getting from net >>",
-				jsonObject.toString());
+		Log.i(ProjectConst.debugTag , "saveNote params after getting from net >> " + jsonObject.toString());
 
 		return jsonObject;
 	}
@@ -100,12 +98,11 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("note_id", note_id));
 		params.add(new BasicNameValuePair("note_content", note_content));
 
-		Log.i("updateNote params before getting from net >>", params.toString());
+		Log.i( ProjectConst.debugTag , "updateNote params before getting from net >> " +  params.toString());
 
 		JSONObject jsonObject = jsonParser.getJSONFromUrl(apisURL, params);
 
-		Log.i("updateNote params after getting from net >>",
-				jsonObject.toString());
+		Log.i(ProjectConst.debugTag , "updateNote params after getting from net >> " + jsonObject.toString());
 
 		return jsonObject;
 	}
@@ -116,12 +113,11 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("tag", deleteNote_tag));
 		params.add(new BasicNameValuePair("note_id", note_id));
 
-		Log.i("deleteNote params before getting from net >>", params.toString());
+		Log.i(ProjectConst.debugTag , "deleteNote params before getting from net >> " + params.toString());
 
 		JSONObject jsonObject = jsonParser.getJSONFromUrl(apisURL, params);
 
-		Log.i("deleteNote params after getting from net >>",
-				jsonObject.toString());
+		Log.i(ProjectConst.debugTag , "deleteNote params after getting from net >> " + jsonObject.toString());
 
 		return jsonObject;
 	}
@@ -132,13 +128,11 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("tag", getNoteDetail_tag));
 		params.add(new BasicNameValuePair("note_id", note_id));
 
-		Log.i("GetNoteDetail params before getting from net >>",
-				params.toString());
+		Log.i(ProjectConst.debugTag , "GetNoteDetail params before getting from net >> " + params.toString());
 
 		JSONObject jsonObject = jsonParser.getJSONFromUrl(apisURL, params);
 
-		Log.i("GetNoteDetail params after getting from net >>",
-				jsonObject.toString());
+		Log.i(ProjectConst.debugTag , "GetNoteDetail params after getting from net >> " + jsonObject.toString());
 
 		return jsonObject;
 	}
